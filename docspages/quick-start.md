@@ -2,6 +2,18 @@
 layout: default
 title: Quick Start
 permalink: /quick-start
+description: Get started with Apache Sling Auditor in minutes. Learn basic commands, scan modes, and run your first security audit.
+keywords: Apache Sling Auditor quick start, security scanning tutorial, first scan, basic commands
+related:
+  - title: Installation Guide
+    url: /installation
+    description: Install the tool first
+  - title: Usage Guide
+    url: /usage
+    description: Detailed usage instructions
+  - title: Examples
+    url: /examples
+    description: See practical examples
 ---
 
 # Quick Start Guide
@@ -208,10 +220,10 @@ python auditor.py -t http://target.com:4502 \
 
 Now that you've run your first scan:
 
-1. **[Read the Usage Guide]({{ site.baseurl }}/usage)** - Learn advanced features
-2. **[Explore Configuration]({{ site.baseurl }}/configuration)** - Customize scans
-3. **[Check CVE Detection]({{ site.baseurl }}/cve-detection)** - Understand detected vulnerabilities
-4. **[Review Examples]({{ site.baseurl }}/examples)** - See more use cases
+1. **[Read the Usage Guide]({{ '/usage' | relative_url }})** - Learn advanced features
+2. **[Explore Configuration]({{ '/configuration' | relative_url }})** - Customize scans
+3. **[Check CVE Detection]({{ '/cve-detection' | relative_url }})** - Understand detected vulnerabilities
+4. **[Review Examples]({{ '/examples' | relative_url }})** - See more use cases
 
 ## Tips for Success
 

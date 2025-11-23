@@ -2,6 +2,18 @@
 layout: default
 title: Examples
 permalink: /examples
+description: Practical usage examples for Apache Sling Auditor. Real-world scenarios, command examples, and use cases for security auditing, penetration testing, and vulnerability assessment.
+keywords: Apache Sling Auditor examples, security scanning examples, penetration testing examples, vulnerability assessment examples
+related:
+  - title: Quick Start
+    url: /quick-start
+    description: Basic examples
+  - title: Usage Guide
+    url: /usage
+    description: Detailed usage
+  - title: API Reference
+    url: /api-reference
+    description: Command reference
 ---
 
 # Usage Examples

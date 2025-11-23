@@ -2,6 +2,18 @@
 layout: default
 title: API Reference
 permalink: /api-reference
+description: Complete API reference for Apache Sling Auditor command-line interface. All command-line options, arguments, and usage examples.
+keywords: Apache Sling Auditor API, command line reference, CLI options, command reference, security tool commands
+related:
+  - title: Usage Guide
+    url: /usage
+    description: Detailed usage instructions
+  - title: Examples
+    url: /examples
+    description: Practical command examples
+  - title: Quick Start
+    url: /quick-start
+    description: Get started quickly
 ---
 
 # API Reference

@@ -2,6 +2,18 @@
 layout: default
 title: Configuration
 permalink: /configuration
+description: Complete configuration guide for Apache Sling Auditor. Learn how to customize scan modes, CVE definitions, paths, credentials, and security check settings via YAML configuration.
+keywords: Apache Sling Auditor configuration, YAML config, scan mode settings, CVE configuration, security tool configuration
+related:
+  - title: Installation Guide
+    url: /installation
+    description: Install before configuring
+  - title: CVE Detection
+    url: /cve-detection
+    description: Configure CVE detection
+  - title: Usage Guide
+    url: /usage
+    description: Use your configuration
 ---
 
 # Configuration Guide

@@ -2,6 +2,21 @@
 layout: default
 title: Usage Guide
 permalink: /usage
+description: Complete usage guide for Apache Sling Auditor. Learn scan modes, command-line options, authentication, wordlist enumeration, exploitation, and brute force testing.
+keywords: Apache Sling Auditor usage, scan modes, command line options, security scanning guide, penetration testing guide
+related:
+  - title: Quick Start
+    url: /quick-start
+    description: Get started quickly
+  - title: API Reference
+    url: /api-reference
+    description: Complete command reference
+  - title: Examples
+    url: /examples
+    description: Practical usage examples
+  - title: Configuration
+    url: /configuration
+    description: Configure scan behavior
 ---
 
 # Usage Guide

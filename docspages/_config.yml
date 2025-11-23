@@ -1,8 +1,9 @@
 # GitHub Pages Configuration for Apache Sling Auditor Documentation
 
 title: Apache Sling / AEM Security Auditor
-description: Comprehensive security auditing tool for Apache Sling and Adobe Experience Manager instances
-author: Ruben~F. Silva
+description: Comprehensive security auditing tool for Apache Sling and Adobe Experience Manager instances. Detect vulnerabilities, misconfigurations, and security weaknesses with automated scanning.
+keywords: Apache Sling, AEM, Security Audit, Vulnerability Scanner, Penetration Testing, CVE Detection, Log4Shell, XSS, SSRF, Path Traversal
+author: Ruben Silva
 author_linkedin: https://www.linkedin.com/in/ruben-silva85/
 author_github: https://github.com/Auditing-Korner
 author_patreon: https://www.patreon.com/cw/rfs85
@@ -13,6 +14,16 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO Settings
+lang: en
+timezone: UTC
+google_site_verification: false
+twitter:
+  username: false
+github:
+  repository_url: https://github.com/Auditing-Korner/Apache-Sling-Auditor
 
 # Markdown settings
 markdown: kramdown
@@ -58,4 +69,3 @@ exclude:
   - vendor
   - README.md
   - LICENSE
-

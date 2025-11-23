@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://auditing-korner.github.io/Apache-Sling-Auditor/sitemap.xml
+

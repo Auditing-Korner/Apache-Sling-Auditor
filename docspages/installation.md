@@ -2,6 +2,18 @@
 layout: default
 title: Installation
 permalink: /installation
+description: Complete installation guide for Apache Sling Auditor. Learn how to install Python dependencies, set up virtual environments, and configure the security auditing tool.
+keywords: Apache Sling Auditor installation, Python setup, virtual environment, pip install, security tool setup
+related:
+  - title: Quick Start Guide
+    url: /quick-start
+    description: Run your first scan after installation
+  - title: Configuration Guide
+    url: /configuration
+    description: Configure the auditor after installation
+  - title: Usage Guide
+    url: /usage
+    description: Learn how to use the tool
 ---
 
 # Installation Guide

@@ -2,6 +2,18 @@
 layout: default
 title: Features
 permalink: /features
+description: Complete feature list for Apache Sling Auditor including multi-mode scanning, CVE detection, exploitation capabilities, brute force testing, and detailed reporting.
+keywords: Apache Sling Auditor features, security scanning features, CVE detection, vulnerability scanning, penetration testing tools
+related:
+  - title: CVE Detection
+    url: /cve-detection
+    description: Learn about detected vulnerabilities
+  - title: Exploitation Guide
+    url: /exploitation
+    description: Exploitation capabilities
+  - title: Usage Guide
+    url: /usage
+    description: How to use all features
 ---
 
 # Features
@@ -38,7 +50,7 @@ Automated detection of 10+ known CVEs:
 - **CVE-2019-8086** (Info Disclosure) - Medium
 - And more...
 
-See [CVE Detection]({{ site.baseurl }}/cve-detection) for complete list.
+See [CVE Detection]({{ '/cve-detection' | relative_url }}) for complete list.
 
 ### 💥 Active Exploitation
 
@@ -49,7 +61,7 @@ When `--exploit` flag is enabled:
 - **Path Traversal**: Attempts file reading
 - **Info Disclosure**: Extracts sensitive data
 
-See [Exploitation Guide]({{ site.baseurl }}/exploitation) for details.
+See [Exploitation Guide]({{ '/exploitation' | relative_url }}) for details.
 
 ### 🔐 Brute Force Testing
 

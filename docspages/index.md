@@ -2,6 +2,18 @@
 layout: default
 title: Home
 permalink: /
+description: Comprehensive security auditing tool for Apache Sling and Adobe Experience Manager (AEM) instances. Detect vulnerabilities, misconfigurations, and security weaknesses with automated scanning and exploitation testing.
+keywords: Apache Sling, AEM, Security Audit, Vulnerability Scanner, Penetration Testing, CVE Detection, Log4Shell, XSS, SSRF, Path Traversal, Security Testing
+related:
+  - title: Quick Start Guide
+    url: /quick-start
+    description: Get started in minutes
+  - title: Installation Guide
+    url: /installation
+    description: Setup instructions
+  - title: Features Overview
+    url: /features
+    description: Complete feature list
 ---
 
 # Apache Sling / AEM Security Auditor

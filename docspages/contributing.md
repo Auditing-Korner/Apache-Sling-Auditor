@@ -2,6 +2,18 @@
 layout: default
 title: Contributing
 permalink: /contributing
+description: Contributing guide for Apache Sling Auditor. Learn how to contribute code, report issues, submit pull requests, and help improve the security auditing tool.
+keywords: contribute to Apache Sling Auditor, open source contribution, GitHub contribution, security tool development
+related:
+  - title: GitHub Repository
+    url: https://github.com/Auditing-Korner/Apache-Sling-Auditor
+    description: View on GitHub
+  - title: Features
+    url: /features
+    description: See what features exist
+  - title: Configuration
+    url: /configuration
+    description: Add configuration options
 ---
 
 # Contributing Guide
