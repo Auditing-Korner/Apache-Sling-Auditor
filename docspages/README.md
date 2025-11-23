@@ -15,7 +15,7 @@ The documentation is automatically deployed using GitHub Actions whenever:
 - Changes are pushed to the `main` branch in the `docspages/` directory
 - The workflow is manually triggered from the Actions tab
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment information.
+See `.github/workflows/pages.yml` for deployment configuration.
 
 ## Local Development
 
