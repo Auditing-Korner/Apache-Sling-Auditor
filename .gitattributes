@@ -1,49 +1,180 @@
+# =============================================================================
 # Git Attributes for Apache Sling Auditor
+# =============================================================================
 # Ensures proper handling of files and prevents accidental commits
+# =============================================================================
 
-# Text files
-*.py text eol=lf
+# =============================================================================
+# Text Files - Normalize Line Endings
+# =============================================================================
+# Python files
+*.py text eol=lf diff=python
+
+# Configuration files
 *.yaml text eol=lf
 *.yml text eol=lf
-*.txt text eol=lf
-*.md text eol=lf
 *.json text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.conf text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+
+# Web files
 *.html text eol=lf
 *.css text eol=lf
 *.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
 
-# Configuration files (allow JSON in config/)
-config/*.json text
+# Shell scripts
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
 
-# Binary files
+# Git files
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.gitmodules text eol=lf
+
+# GitHub Actions
+.github/**/*.yml text eol=lf
+.github/**/*.yaml text eol=lf
+
+# Jekyll files
+docspages/**/*.md text eol=lf
+docspages/**/*.html text eol=lf
+docspages/**/*.css text eol=lf
+docspages/**/*.yml text eol=lf
+
+# =============================================================================
+# Configuration Files - Allow JSON in config/
+# =============================================================================
+config/*.json text eol=lf
+!package.json text eol=lf
+!package-lock.json text eol=lf
+!tsconfig.json text eol=lf
+!jsconfig.json text eol=lf
+
+# =============================================================================
+# Binary Files
+# =============================================================================
+# Images
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.gif binary
-*.pdf binary
+*.ico binary
+*.svg binary
+*.webp binary
+*.bmp binary
+*.tiff binary
+
+# Archives
 *.zip binary
+*.tar binary
+*.tar.gz binary
+*.rar binary
+*.7z binary
+*.gz binary
+*.bz2 binary
+*.xz binary
+
+# Executables
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+
+# Java
 *.jar binary
+*.war binary
+*.ear binary
+*.class binary
+
+# Certificates and keys (should be gitignored, but if present)
 *.pem binary
 *.key binary
 *.crt binary
 *.p12 binary
 *.pfx binary
+*.jks binary
+*.keystore binary
 
-# Generated files (should not be tracked)
-wordlists/*_generated.txt -text
-scan_results/** -text
-reports/** -text
-**/exploits/** -text
+# PDFs
+*.pdf binary
 
-# Ensure scan results are never committed
+# Office documents
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+
+# =============================================================================
+# Generated Files - Mark as Generated
+# =============================================================================
+# Generated wordlists
+wordlists/*_generated.txt linguist-generated=true
+wordlists/*_generated.* linguist-generated=true
+
+# Scan results (should be gitignored, but if present)
 scan_results/** linguist-generated=true
 reports/** linguist-generated=true
+output/** linguist-generated=true
+results/** linguist-generated=true
+
+# Exploit outputs
 **/exploits/** linguist-generated=true
 **/*_report.json linguist-generated=true
 **/extracted_*.txt linguist-generated=true
 **/disclosure_*.txt linguist-generated=true
+**/xss_poc_*.html linguist-generated=true
+**/payload_*.js linguist-generated=true
 
-# Wordlists (text files, but large)
-wordlists/*.txt text
-wordlists/*.txt linguist-vendored=false
+# Jekyll build output
+docspages/_site/** linguist-generated=true
+docspages/.sass-cache/** linguist-generated=true
+docspages/.jekyll-cache/** linguist-generated=true
 
+# Python cache
+__pycache__/** linguist-generated=true
+*.pyc linguist-generated=true
+*.pyo linguist-generated=true
+
+# =============================================================================
+# Wordlists - Text Files, Large but Tracked
+# =============================================================================
+wordlists/*.txt text eol=lf linguist-vendored=false
+wordlists/*.txt diff
+
+# =============================================================================
+# Documentation - Tracked
+# =============================================================================
+docs/**/*.md text eol=lf
+docspages/**/*.md text eol=lf
+*.md text eol=lf
+
+# =============================================================================
+# Source Code - Tracked
+# =============================================================================
+*.py text eol=lf diff=python
+*.sh text eol=lf diff
+
+# =============================================================================
+# Configuration - Tracked
+# =============================================================================
+config/*.yaml text eol=lf
+config/*.yml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# =============================================================================
+# End of .gitattributes
+# =============================================================================

@@ -1,8 +1,71 @@
+# =============================================================================
+# Apache Sling Auditor - Git Ignore Rules
+# =============================================================================
+# This file ensures sensitive data, build artifacts, and temporary files
+# are never committed to the repository.
+# =============================================================================
+
+# =============================================================================
+# CRITICAL: Scan Results and Reports - NEVER COMMIT THESE
+# =============================================================================
+# All scan outputs, reports, and extracted data must be excluded
+# These files contain sensitive information about target systems
+scan_results/
+scan_results/**/*
+reports/
+reports/**/*
+output/
+output/**/*
+results/
+results/**/*
+
+# Report files (JSON, HTML, PDF, CSV, Excel)
+*.json
+!config/*.json
+!package.json
+!package-lock.json
+!tsconfig.json
+!jsconfig.json
+*.html
+*.pdf
+*.csv
+*.xlsx
+*.xls
+*.xlsm
+
+# Log files
+*.log
+*.log.*
+logs/
+*.logfile
+
+# =============================================================================
+# Exploit Outputs and Extracted Data - NEVER COMMIT
+# =============================================================================
+# All exploit outputs, PoC files, and extracted data
+**/exploits/
+**/exploits/**/*
+**/extracted_*.txt
+**/disclosure_*.txt
+**/xss_poc_*.html
+**/payload_*.js
+**/extracted_info_summary.json
+**/header_security_report.json
+**/vulnerability_report.*
+**/security_report.*
+
+# =============================================================================
 # Python
+# =============================================================================
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+# C extensions
 *.so
+
+# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -16,99 +79,238 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
 MANIFEST
-docs/*
-# Virtual Environment
-venv/
-env/
-ENV/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+test-results/
+test_output/
+*.test.json
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
 .env
 .venv
+env/
+venv/
+ENV/
 env.bak/
 venv.bak/
 .conda/
 
-# IDE - VSCode
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# =============================================================================
+# Jekyll / GitHub Pages (docspages)
+# =============================================================================
+# Jekyll build output
+docspages/_site/
+docspages/.sass-cache/
+docspages/.jekyll-cache/
+docspages/.jekyll-metadata
+docspages/.jekyll-cache/
+docspages/vendor/
+docspages/.bundle/
+docspages/Gemfile.lock
+
+# Jekyll temporary files
+docspages/.jekyll-*
+docspages/.sass-cache/
+
+# =============================================================================
+# IDE and Editor Files
+# =============================================================================
+# VSCode
 .vscode/
 *.code-workspace
 .history/
-*.sublime-workspace
-*.sublime-project
+.vscode-test/
 
-# IDE - PyCharm
+# PyCharm
 .idea/
 *.iml
 *.iws
+*.ipr
 .idea_modules/
 
-# IDE - Sublime Text
+# Sublime Text
 *.sublime-workspace
 *.sublime-project
 
-# Scan Results and Reports - NEVER COMMIT THESE
-# All scan outputs, reports, and extracted data must be excluded
-scan_results/
-scan_results/**/*
-reports/
-reports/**/*
-output/
-output/**/*
-results/
-results/**/*
-*.log
-*.json
-!config/*.json
-!package.json
-!package-lock.json
-*.html
-*.pdf
-*.csv
-*.xlsx
-*.xls
-
-# Exploit outputs and extracted data
-**/exploits/
-**/extracted_*.txt
-**/disclosure_*.txt
-**/xss_poc_*.html
-**/payload_*.js
-**/extracted_info_summary.json
-**/header_security_report.json
-
-# Cache and Temporary files
-.cache/
-.pytest_cache/
+# Vim
 *.swp
 *.swo
 *~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+*.launch
+
+# NetBeans
+nbproject/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# =============================================================================
+# OS-Specific Files
+# =============================================================================
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
 Thumbs.db
-desktop.ini
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
 
-# Coverage reports
-.coverage
-coverage.xml
-htmlcov/
-.tox/
-.nox/
+# Linux
+*~
+.directory
+.Trash-*
+.nfs*
 
-# Profiling
-*.prof
-profile_results/
-
-# Project specific - Generated files
-wordlists/sling_paths_generated.txt
-wordlists/*_generated.txt
-config/custom_*.yaml
-config/local_*.yaml
-*.bak
-*.tmp
-*.temp
-
+# =============================================================================
 # Security and Credentials - NEVER COMMIT
+# =============================================================================
+# Certificates and keys
 *.pem
 *.key
 *.crt
@@ -118,74 +320,132 @@ config/local_*.yaml
 *.p12
 *.pfx
 *.jks
+*.keystore
+*.truststore
+
+# Credentials and secrets
 credentials.yaml
 secrets.yaml
+secrets.yml
 auth.json
 *.env
 .env.*
 !*.example.env
+.envrc
+.secrets
+*.secret
+*.keyring
 
-# Documentation build
+# API keys and tokens
+api_keys.txt
+tokens.txt
+*.token
+
+# =============================================================================
+# Project-Specific Generated Files
+# =============================================================================
+# Generated wordlists
+wordlists/sling_paths_generated.txt
+wordlists/*_generated.txt
+wordlists/*_generated.*
+
+# Local configuration overrides
+config/custom_*.yaml
+config/local_*.yaml
+config/*_local.yaml
+config/*_local.yml
+local_config.yaml
+local_config.yml
+
+# Temporary and backup files
+*.bak
+*.backup
+*.tmp
+*.temp
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+
+# =============================================================================
+# Build and Cache Directories
+# =============================================================================
+# General cache
+.cache/
+cache/
+*.cache
+
+# Build artifacts
+build/
+dist/
+out/
+target/
+
+# =============================================================================
+# GitHub Actions and CI/CD
+# =============================================================================
+# GitHub Actions artifacts (if any)
+.github/artifacts/
+.github/workflows/*.log
+
+# =============================================================================
+# Database Files
+# =============================================================================
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+
+# =============================================================================
+# Archive Files (if generated)
+# =============================================================================
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+!wordlists/*.zip  # Allow wordlist archives if needed
+
+# =============================================================================
+# Profiling and Performance
+# =============================================================================
+*.prof
+profile_results/
+*.pstats
+
+# =============================================================================
+# Documentation Build Outputs
+# =============================================================================
+# Sphinx
 docs/_build/
 docs/_static/
 docs/_templates/
+
+# MkDocs
 site/
 
-# Backup files
-*.bak
-*~
-*.orig
-*.rej
-*.backup
+# =============================================================================
+# Miscellaneous
+# =============================================================================
+# Compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
 
-# OS specific
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-desktop.ini
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
 
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# Celery
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath
-*.sage.py
-
-# Spyder
-.spyderproject
-.spyproject
-
-# Rope
-.ropeproject
-
-# mkdocs
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre
-.pyre/
-
-# Test outputs
-.pytest_cache/
-test-results/
-test_output/
-*.test.json
-
-# Local configuration overrides
-config/local_*.yaml
-config/*_local.yaml
-local_config.yaml
+# =============================================================================
+# End of .gitignore
+# =============================================================================

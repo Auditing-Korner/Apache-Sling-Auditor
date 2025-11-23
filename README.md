@@ -4,7 +4,9 @@ A comprehensive, feature-rich security auditing tool designed for Apache Sling a
 
 ![Version](https://img.shields.io/badge/version-2.0-blue)
 ![Python](https://img.shields.io/badge/python-3.7+-green)
-![License](https://img.shields.io/badge/license-Apache%202.0-orange)
+![License](https://img.shields.io/badge/license-GPL--3.0-orange)
+![GitHub](https://img.shields.io/badge/GitHub-Auditing--Korner-blue)
+[![GitHub Pages](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://auditing-korner.github.io/Apache-Sling-Auditor)
 
 ---
 
@@ -68,7 +70,7 @@ A comprehensive, feature-rich security auditing tool designed for Apache Sling a
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Apache-Sling-Auditor.git
+git clone https://github.com/Auditing-Korner/Apache-Sling-Auditor.git
 cd Apache-Sling-Auditor
 
 # Create a virtual environment (recommended)
@@ -836,7 +838,7 @@ Apache-Sling-Auditor/
 ├── auditor.py                    # Main auditor application
 ├── requirements.txt              # Python dependencies
 ├── README.md                     # This file
-├── LICENSE                       # Apache License 2.0
+├── LICENSE                       # GPL-3.0 License
 ├── CONTRIBUTING.md              # Contribution guidelines
 ├── .gitignore                   # Git ignore rules
 ├── .gitattributes               # Git file handling
@@ -900,7 +902,9 @@ See `CONTRIBUTING.md` for complete contribution guidelines.
 
 ## License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
+
+**Repository**: [https://github.com/Auditing-Korner/Apache-Sling-Auditor](https://github.com/Auditing-Korner/Apache-Sling-Auditor)
 
 ---
 
@@ -924,9 +928,10 @@ By using this tool, you agree to use it only for legitimate security testing pur
 
 For issues, questions, or contributions:
 
-- **Issues**: Open an issue on GitHub
-- **Contributions**: Submit a Pull Request
-- **Documentation**: See `docs/` directory
+- **Repository**: [https://github.com/Auditing-Korner/Apache-Sling-Auditor](https://github.com/Auditing-Korner/Apache-Sling-Auditor)
+- **Issues**: [Open an issue on GitHub](https://github.com/Auditing-Korner/Apache-Sling-Auditor/issues)
+- **Contributions**: [Submit a Pull Request](https://github.com/Auditing-Korner/Apache-Sling-Auditor/pulls)
+- **Documentation**: See `docs/` directory or [GitHub Pages](https://auditing-korner.github.io/Apache-Sling-Auditor)
 
 ---
 
