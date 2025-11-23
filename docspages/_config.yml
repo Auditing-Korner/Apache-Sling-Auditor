@@ -11,9 +11,16 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
 
+# Markdown settings
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
 # Site settings
-baseurl: "/Apache-Sling-Auditor"  # Change this to your repository name
-url: "https://yourusername.github.io"  # Change this to your GitHub Pages URL
+baseurl: "/Apache-Sling-Auditor"  # Repository name
+url: "https://auditing-korner.github.io"  # GitHub Pages URL
 
 # Navigation
 navigation:

@@ -15,7 +15,7 @@ permalink: /
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/Apache-Sling-Auditor.git
+git clone https://github.com/Auditing-Korner/Apache-Sling-Auditor.git
 cd Apache-Sling-Auditor
 
 # Install dependencies
@@ -121,13 +121,13 @@ Contributions are welcome! See the [Contributing Guide]({{ site.baseurl }}/contr
 
 ## 📄 License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/yourusername/Apache-Sling-Auditor/blob/main/LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/Auditing-Korner/Apache-Sling-Auditor/blob/main/LICENSE) file for details.
 
 ---
 
 <div class="footer-links">
   <a href="{{ site.baseurl }}/installation">Get Started →</a>
-  <a href="https://github.com/yourusername/Apache-Sling-Auditor">View on GitHub →</a>
+  <a href="https://github.com/Auditing-Korner/Apache-Sling-Auditor">View on GitHub →</a>
   <a href="{{ site.baseurl }}/examples">See Examples →</a>
 </div>
 
