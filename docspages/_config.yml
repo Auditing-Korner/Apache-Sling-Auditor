@@ -31,6 +31,10 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: 'highlight'
+    line_numbers: true
+    line_number_start: 1
+    span_line_numbers: false
+    block_line_numbers: true
 
 # Site settings
 baseurl: "/Apache-Sling-Auditor"  # Repository name

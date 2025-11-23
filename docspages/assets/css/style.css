@@ -67,6 +67,13 @@
     /* Layout */
     --sidebar-width: 280px;
     --navbar-height: 64px;
+    
+    /* Dark Mode Colors */
+    --dark-bg-primary: #0f172a;
+    --dark-bg-secondary: #1e293b;
+    --dark-text-primary: #f1f5f9;
+    --dark-text-secondary: #cbd5e1;
+    --dark-border: #334155;
 }
 
 /* =============================================================================
