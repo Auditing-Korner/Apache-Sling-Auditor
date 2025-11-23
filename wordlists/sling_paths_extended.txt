@@ -1,0 +1,462 @@
+# Extended Apache Sling / AEM Path Wordlist
+# Comprehensive list of paths, endpoints, and resources for enumeration
+
+# System Console Paths
+/system/console
+/system/console/bundles
+/system/console/bundles.json
+/system/console/configMgr
+/system/console/configMgr.json
+/system/console/status
+/system/console/status.json
+/system/console/memoryusage
+/system/console/memoryusage.json
+/system/console/licenses
+/system/console/productinfo
+/system/console/productinfo.json
+/system/console/vmstat
+/system/console/threads
+/system/console/diskbenchmark
+/system/console/status-slinglog
+/system/console/status-slinglog.json
+/system/console/status-slingsettings
+/system/console/status-slingsettings.json
+/system/console/status-systemproperties
+/system/console/status-systemproperties.json
+/system/console/status-osgi
+/system/console/status-osgi.json
+/system/console/status-bundles
+/system/console/status-bundles.json
+
+# Sling Info and Login
+/system/sling/info
+/system/sling/info.json
+/system/sling/info.sessionInfo.json
+/system/sling/cqform/defaultlogin.html
+/system/sling/loginstatus
+/system/sling/loginstatus.json
+/system/sling/login
+/system/sling/logout
+/system/sling/explorer
+/system/sling/browser
+/system/sling/resource
+/system/sling/resource.json
+
+# Content Paths with Variations
+/.json
+/.xml
+/.html
+/.txt
+/content
+/content.json
+/content.xml
+/content.html
+/content.1.json
+/content.infinity.json
+/content.childrenlist.json
+/content.ext.json
+/content.languages.json
+/content.pages.json
+/content.feed.xml
+/content/_jcr_content
+/content/_jcr_content.json
+/content/_jcr_content.xml
+
+# JCR Paths
+/jcr:root
+/jcr:root.json
+/jcr:content
+/jcr:content.json
+/_jcr_content
+/_jcr_content.json
+/.jcr:content
+/.jcr:content.json
+/jcr:data
+/jcr:system
+/jcr:system.json
+/jcr:primaryType
+/jcr:mixinTypes
+/jcr:created
+/jcr:createdBy
+/jcr:lastModified
+/jcr:lastModifiedBy
+
+# CRX Admin Consoles
+/crx
+/crx/admin
+/crx/admin/index.jsp
+/crx/de
+/crx/de/index.jsp
+/crx/explorer
+/crx/explorer/index.jsp
+/crx/explorer/browser/index.jsp
+/crx/packmgr
+/crx/packmgr/index.jsp
+/crx/server
+/crx/server/crx-quickstart/server.xml
+
+# CRXDE Paths
+/bin/crxde
+/bin/crxde/logs
+/bin/crxde/logs.json
+/bin/crxde/browser
+/bin/crxde/browser.json
+/apps/crx/de
+/apps/crx/de/index.jsp
+
+# User and Group Management
+/home/users
+/home/users.json
+/home/users/admin
+/home/users/admin.json
+/home/users/administrators
+/home/users/administrators.json
+/home/groups
+/home/groups.json
+/home/groups/administrators
+/home/groups/administrators.json
+
+# API Endpoints
+/bin/querybuilder
+/bin/querybuilder.json
+/bin/querybuilder.xml
+/bin/wcm/search/gql.servlet.json
+/bin/wcm/contentfinder/connector/suggestions.json
+/bin/wcm/siteadmin/tree.json
+/bin/wcm/launches/data.json
+/bin/statistics
+/bin/statistics.json
+/bin/propagation
+/bin/receive
+/bin/receive.json
+/bin/replicate
+/bin/replicate.json
+/bin/audit
+/bin/audit.json
+/bin/workflow
+/bin/workflow.json
+/bin/feed
+/bin/feed.json
+
+# Security Sensitive Paths
+/etc
+/etc.json
+/etc/keys
+/etc/keys.json
+/etc/packages
+/etc/packages.json
+/etc/passwords
+/etc/passwords.json
+/etc/replication
+/etc/replication.json
+/etc/replication.infinity.json
+/etc/replication/agents.author
+/etc/replication/agents.author.json
+/etc/replication/agents.publish
+/etc/replication/agents.publish.json
+/etc/truststore
+/etc/truststore.json
+/etc/reports
+/etc/reports.json
+/etc/mobile
+/etc/segmentation
+/etc/clientlibs
+/etc/clientlibs.json
+/etc/designs
+/etc/designs.json
+/etc/cloudservices
+/etc/cloudservices.json
+/etc/blueprints
+/etc/blueprints.json
+
+# OSGI Configuration
+/system/console/config
+/system/console/config.json
+/felix-console
+/felix/console
+/felix/console/bundles
+/felix/console/bundles.json
+
+# Login and Authentication
+/libs/granite/core/content/login.html
+/libs/granite/core/content/login.json
+/libs/cq/core/content/login.html
+/libs/cq/core/content/login.json
+/libs/cq/core/content/welcome.html
+/libs/cq/core/content/welcome.json
+
+# Dispatcher
+/dispatcher
+/dispatcher/invalidate.cache
+/dispatcher/invalidate.cache.json
+/dispatcher/flush
+/dispatcher/flush.json
+
+# Package Manager
+/etc/packages
+/etc/packages.json
+/etc/packages/my_packages
+/etc/packages/my_packages.json
+
+# Workflow
+/etc/workflow
+/etc/workflow.json
+/etc/workflow/models
+/etc/workflow/models.json
+/etc/workflow/instances
+/etc/workflow/instances.json
+
+# Cloud Services
+/etc/cloudservices
+/etc/cloudservices.json
+
+# Reports
+/etc/reports
+/etc/reports.json
+/etc/reports/onlinestore
+/etc/reports/onlinestore.json
+
+# Mobile
+/etc/mobile
+/etc/mobile.json
+
+# Segmentation
+/etc/segmentation
+/etc/segmentation.json
+
+# Client Libraries
+/etc/clientlibs
+/etc/clientlibs.json
+
+# Designs
+/etc/designs
+/etc/designs.json
+/etc/designs/default
+/etc/designs/default.json
+
+# Context Hub
+/etc/cloudsettings
+/etc/cloudsettings.json
+/etc/cloudsettings/default
+/etc/cloudsettings/default.json
+
+# Tagging
+/etc/tags
+/etc/tags.json
+
+# Translation
+/etc/translation
+/etc/translation.json
+
+# Social
+/etc/community
+/etc/community.json
+
+# Commerce
+/etc/commerce
+/etc/commerce.json
+
+# Forms
+/etc/forms
+/etc/forms.json
+
+# Campaigns
+/etc/campaigns
+/etc/campaigns.json
+
+# Screens
+/etc/screens
+/etc/screens.json
+
+# Assets
+/content/dam
+/content/dam.json
+/content/dam/asset-library
+/content/dam/asset-library.json
+
+# Sites
+/content/sites
+/content/sites.json
+/content/we-retail
+/content/we-retail.json
+
+# Projects
+/content/projects
+/content/projects.json
+
+# Launches
+/content/launches
+/content/launches.json
+
+# Experience Fragments
+/content/experience-fragments
+/content/experience-fragments.json
+
+# Content Fragments
+/content/cf
+/content/cf.json
+
+# Common API Patterns
+/bin/wcm
+/bin/wcm.json
+/bin/cq
+/bin/cq.json
+/bin/aem
+/bin/aem.json
+
+# Search Endpoints
+/bin/search
+/bin/search.json
+/bin/wcm/search
+/bin/wcm/search.json
+
+# Query Endpoints
+/bin/query
+/bin/query.json
+/bin/querybuilder
+/bin/querybuilder.json
+
+# Replication Endpoints
+/bin/replicate
+/bin/replicate.json
+/bin/receive
+/bin/receive.json
+
+# Audit Endpoints
+/bin/audit
+/bin/audit.json
+/bin/audit/query
+/bin/audit/query.json
+
+# Workflow Endpoints
+/bin/workflow
+/bin/workflow.json
+/bin/workflow/instances
+/bin/workflow/instances.json
+/bin/workflow/models
+/bin/workflow/models.json
+
+# Statistics
+/bin/statistics
+/bin/statistics.json
+
+# Feed
+/bin/feed
+/bin/feed.json
+/bin/feed.xml
+
+# JSON API Variations
+/.1.json
+/.infinity.json
+/.childrenlist.json
+/.ext.json
+/.languages.json
+/.pages.json
+/.feed.xml
+
+# System Information
+/system/console/status
+/system/console/status.json
+/system/console/status-slinglog
+/system/console/status-slinglog.json
+/system/console/status-slingsettings
+/system/console/status-slingsettings.json
+/system/console/status-systemproperties
+/system/console/status-systemproperties.json
+/system/console/status-osgi
+/system/console/status-osgi.json
+/system/console/status-bundles
+/system/console/status-bundles.json
+
+# Backup and Export
+/etc/backup
+/etc/backup.json
+/etc/export
+/etc/export.json
+
+# Configuration
+/etc/config
+/etc/config.json
+/etc/config.author
+/etc/config.author.json
+/etc/config.publish
+/etc/config.publish.json
+
+# Security
+/etc/security
+/etc/security.json
+/etc/security/users
+/etc/security/users.json
+
+# Apache Sling Specific
+/libs/sling
+/libs/sling.json
+/apps/sling
+/apps/sling.json
+
+# AEM Specific
+/libs/cq
+/libs/cq.json
+/apps/cq
+/apps/cq.json
+/libs/granite
+/libs/granite.json
+/apps/granite
+/apps/granite.json
+
+# Common Admin Paths
+/admin
+/admin.json
+/administrator
+/administrator.json
+/manager
+/manager.json
+/console
+/console.json
+
+# Error Pages (often leak info)
+/error
+/error.html
+/404
+/404.html
+/500
+/500.html
+
+# Health Check
+/health
+/health.json
+/healthcheck
+/healthcheck.json
+/system/health
+/system/health.json
+
+# Metrics and Monitoring
+/metrics
+/metrics.json
+/system/metrics
+/system/metrics.json
+
+# Version Info
+/version
+/version.json
+/system/version
+/system/version.json
+
+# Debug Endpoints
+/debug
+/debug.json
+/system/debug
+/system/debug.json
+
+# Info Endpoints
+/info
+/info.json
+/system/info
+/system/info.json
+
+# Status Endpoints
+/status
+/status.json
+/system/status
+/system/status.json
+

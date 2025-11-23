@@ -1,0 +1,129 @@
+# Apache Sling / AEM Username Wordlist
+# Common default and default usernames for brute force testing
+
+# Default Admin Accounts
+admin
+administrator
+root
+aemadmin
+cqadmin
+slingadmin
+
+# AEM Specific Roles
+author
+publisher
+replicator
+deployer
+useradmin
+workflowadmin
+
+# Common Generic Accounts
+test
+guest
+user
+demo
+admin1
+admin2
+admin3
+
+# Adobe/AEM Specific
+adobe
+aem
+cq
+sling
+day
+felix
+
+# Environment Specific
+dev
+development
+staging
+stage
+prod
+production
+qa
+testenv
+
+# Common Variations
+admin_user
+admin_user1
+adminuser
+admin-user
+admin.user
+admin@example.com
+
+# Service Accounts
+system
+service
+apache
+tomcat
+jcr
+repository
+
+# Common Names (often used as usernames)
+john
+jane
+smith
+jones
+brown
+davis
+miller
+wilson
+moore
+taylor
+
+# Numbered Variations
+admin0
+admin1
+admin2
+admin3
+admin4
+admin5
+user1
+user2
+user3
+test1
+test2
+
+# Company/Organization Patterns
+company
+corp
+enterprise
+org
+organization
+
+# Common Admin Patterns
+superadmin
+super_admin
+sysadmin
+sys_admin
+webadmin
+web_admin
+dbadmin
+db_admin
+
+# AEM Cloud Service
+aemcs
+cloudadmin
+cloud_admin
+
+# Common Defaults in Enterprise
+serviceaccount
+svc_account
+svcaccount
+app_user
+application
+appadmin
+
+# Common Mistakes
+adm
+admn
+administr
+administrato
+admi
+
+# Empty/Null (sometimes works)
+null
+empty
+blank
+

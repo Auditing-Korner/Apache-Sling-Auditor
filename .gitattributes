@@ -1,0 +1,49 @@
+# Git Attributes for Apache Sling Auditor
+# Ensures proper handling of files and prevents accidental commits
+
+# Text files
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+
+# Configuration files (allow JSON in config/)
+config/*.json text
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.jar binary
+*.pem binary
+*.key binary
+*.crt binary
+*.p12 binary
+*.pfx binary
+
+# Generated files (should not be tracked)
+wordlists/*_generated.txt -text
+scan_results/** -text
+reports/** -text
+**/exploits/** -text
+
+# Ensure scan results are never committed
+scan_results/** linguist-generated=true
+reports/** linguist-generated=true
+**/exploits/** linguist-generated=true
+**/*_report.json linguist-generated=true
+**/extracted_*.txt linguist-generated=true
+**/disclosure_*.txt linguist-generated=true
+
+# Wordlists (text files, but large)
+wordlists/*.txt text
+wordlists/*.txt linguist-vendored=false
+

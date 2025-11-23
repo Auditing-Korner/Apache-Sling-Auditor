@@ -1,0 +1,300 @@
+# Adobe Experience Manager (AEM) Specific Username Wordlist
+# Comprehensive list of AEM-specific usernames and roles
+
+# Default AEM Roles
+admin
+administrator
+author
+publisher
+replicator
+deployer
+useradmin
+workflowadmin
+content-author
+content-author1
+content-author2
+content-author3
+dam-user
+dam-user1
+dam-user2
+dam-admin
+dam-admin1
+dam-admin2
+
+# AEM Cloud Service
+aemcs-admin
+aemcs-author
+aemcs-publisher
+cloudadmin
+cloud-admin
+cloudauthor
+cloud-author
+cloudpublisher
+cloud-publisher
+
+# AEM as a Cloud Service
+aem-author
+aem-publisher
+aem-admin
+aem-author-service
+aem-publish-service
+
+# Common AEM Service Accounts
+aem-service
+aem-service-account
+cq-service
+cq-service-account
+sling-service
+sling-service-account
+
+# AEM Environment Specific
+aem-dev
+aem-development
+aem-staging
+aem-stage
+aem-prod
+aem-production
+aem-qa
+aem-test
+aem-testenv
+
+# AEM Instance Specific
+author-instance
+publish-instance
+dispatcher-instance
+aem-author1
+aem-author2
+aem-publish1
+aem-publish2
+
+# Common AEM Patterns
+aem-admin
+aemadmin
+aem_admin
+aem.admin
+aem@admin
+cq-admin
+cqadmin
+cq_admin
+cq.admin
+sling-admin
+slingadmin
+sling_admin
+sling.admin
+
+# AEM User Groups
+administrators
+authors
+publishers
+content-authors
+dam-users
+dam-administrators
+workflow-users
+workflow-administrators
+replication-agents
+replication-users
+
+# AEM Default Users
+anonymous
+anonymous-user
+system
+system-user
+service
+service-user
+guest
+guest-user
+
+# AEM Cloud Manager
+cloudmanager
+cloud-manager
+cloudmanager-admin
+cloudmanager-service
+
+# AEM Forms
+forms-user
+forms-admin
+forms-author
+fd-service
+fd-service-user
+
+# AEM Assets
+dam-user
+dam-admin
+assets-user
+assets-admin
+asset-user
+asset-admin
+
+# AEM Sites
+sites-user
+sites-admin
+site-user
+site-admin
+wcm-user
+wcm-admin
+
+# AEM Commerce
+commerce-user
+commerce-admin
+commerce-author
+
+# AEM Screens
+screens-user
+screens-admin
+screens-author
+
+# AEM Campaigns
+campaign-user
+campaign-admin
+campaign-author
+
+# AEM Communities
+communities-user
+communities-admin
+communities-author
+social-user
+social-admin
+
+# AEM Projects
+projects-user
+projects-admin
+projects-author
+
+# AEM Translation
+translation-user
+translation-admin
+translation-author
+
+# AEM Workflow
+workflow-user
+workflow-admin
+workflow-author
+workflow-service
+
+# AEM Replication
+replication-user
+replication-admin
+replication-author
+replication-service
+
+# AEM Audit
+audit-user
+audit-admin
+audit-service
+
+# AEM Package Manager
+package-user
+package-admin
+package-service
+
+# AEM OSGI
+osgi-user
+osgi-admin
+osgi-service
+
+# AEM JCR
+jcr-user
+jcr-admin
+jcr-service
+repository-user
+repository-admin
+
+# AEM Dispatcher
+dispatcher-user
+dispatcher-admin
+dispatcher-service
+
+# AEM Sling
+sling-user
+sling-admin
+sling-service
+
+# AEM Felix
+felix-user
+felix-admin
+felix-service
+
+# AEM Day
+day-user
+day-admin
+day-service
+
+# Common Variations
+admin_user
+admin-user
+admin.user
+admin@example.com
+admin1
+admin2
+admin3
+admin_1
+admin-1
+admin.1
+
+# Numbered Variations
+aemadmin1
+aemadmin2
+aemadmin3
+cqadmin1
+cqadmin2
+cqadmin3
+slingadmin1
+slingadmin2
+slingadmin3
+
+# Environment Prefixes
+dev-admin
+dev-author
+dev-publisher
+staging-admin
+staging-author
+staging-publisher
+prod-admin
+prod-author
+prod-publisher
+qa-admin
+qa-author
+qa-publisher
+
+# Common Service Accounts
+svc-aem
+svc-aemadmin
+svc-cq
+svc-sling
+service-aem
+service-cq
+service-sling
+app-aem
+app-cq
+app-sling
+
+# Common Admin Patterns
+superadmin
+super_admin
+super-admin
+sysadmin
+sys_admin
+sys-admin
+webadmin
+web_admin
+web-admin
+dbadmin
+db_admin
+db-admin
+
+# Common Mistakes
+adm
+admn
+administr
+administrato
+admi
+aemadmn
+cqadmn
+slingadmn
+
+# Empty/Null
+null
+empty
+blank
+(blank)
+

@@ -19,9 +19,8 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+MANIFEST
 
-
-scan_results/*
 # Virtual Environment
 venv/
 env/
@@ -30,11 +29,14 @@ ENV/
 .venv
 env.bak/
 venv.bak/
+.conda/
 
 # IDE - VSCode
 .vscode/
 *.code-workspace
-.history
+.history/
+*.sublime-workspace
+*.sublime-project
 
 # IDE - PyCharm
 .idea/
@@ -46,15 +48,35 @@ venv.bak/
 *.sublime-workspace
 *.sublime-project
 
-# Scan Results and Reports
+# Scan Results and Reports - NEVER COMMIT THESE
+# All scan outputs, reports, and extracted data must be excluded
 scan_results/
+scan_results/**/*
 reports/
+reports/**/*
+output/
+output/**/*
+results/
+results/**/*
 *.log
 *.json
 !config/*.json
+!package.json
+!package-lock.json
 *.html
 *.pdf
 *.csv
+*.xlsx
+*.xls
+
+# Exploit outputs and extracted data
+**/exploits/
+**/extracted_*.txt
+**/disclosure_*.txt
+**/xss_poc_*.html
+**/payload_*.js
+**/extracted_info_summary.json
+**/header_security_report.json
 
 # Cache and Temporary files
 .cache/
@@ -64,24 +86,29 @@ reports/
 *~
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Coverage reports
 .coverage
 coverage.xml
 htmlcov/
+.tox/
+.nox/
 
 # Profiling
 *.prof
 profile_results/
 
-# Project specific
+# Project specific - Generated files
 wordlists/sling_paths_generated.txt
+wordlists/*_generated.txt
 config/custom_*.yaml
+config/local_*.yaml
 *.bak
 *.tmp
 *.temp
 
-# Security and Credentials
+# Security and Credentials - NEVER COMMIT
 *.pem
 *.key
 *.crt
@@ -90,17 +117,75 @@ config/custom_*.yaml
 *.der
 *.p12
 *.pfx
+*.jks
 credentials.yaml
 secrets.yaml
 auth.json
+*.env
+.env.*
+!*.example.env
 
 # Documentation build
 docs/_build/
 docs/_static/
 docs/_templates/
+site/
 
 # Backup files
 *.bak
 *~
 *.orig
-*.rej 
+*.rej
+*.backup
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath
+*.sage.py
+
+# Spyder
+.spyderproject
+.spyproject
+
+# Rope
+.ropeproject
+
+# mkdocs
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre
+.pyre/
+
+# Test outputs
+.pytest_cache/
+test-results/
+test_output/
+*.test.json
+
+# Local configuration overrides
+config/local_*.yaml
+config/*_local.yaml
+local_config.yaml

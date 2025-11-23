@@ -162,9 +162,33 @@ Results are saved in a timestamped directory within `scan_results/` (or the dire
 - **HTML (Planned):** User-friendly graphical report.
 - **Summary (Planned):** A concise overview of critical and high-severity findings.
 
+## Repository Structure
+
+```
+Apache-Sling-Auditor/
+├── auditor.py              # Main auditor application
+├── config/                 # Configuration files
+│   └── audit_config.yaml  # CVE definitions, paths, credentials
+├── wordlists/              # Wordlists for enumeration and brute force
+│   ├── usernames.txt      # Username wordlist
+│   ├── passwords.txt     # Password wordlist
+│   ├── sling_paths.txt   # Path enumeration wordlist
+│   └── ...
+├── scan_results/          # Scan outputs (gitignored - never committed)
+└── docs/                  # Documentation
+```
+
+**Important**: All scan results, reports, and extracted data are automatically excluded from Git via `.gitignore` to prevent accidental commits of sensitive information.
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository, make your changes, and submit a Pull Request. Ensure your code follows standard Python practices and includes relevant tests if applicable.
+
+**Before contributing:**
+- Review `CONTRIBUTING.md` for guidelines
+- Never commit scan results or sensitive data
+- Test your changes thoroughly
+- Update documentation as needed
 
 ## License
 
