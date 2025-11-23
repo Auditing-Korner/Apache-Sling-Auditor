@@ -120,11 +120,12 @@
     padding: var(--spacing-xs) var(--spacing-sm);
     background: var(--light-bg);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 0;
     color: var(--text-secondary);
     cursor: pointer;
     font-size: 0.875rem;
     transition: all var(--transition-fast);
+    font-weight: 600;
 }
 
 .search-trigger:hover {
@@ -170,9 +171,13 @@
 }
 
 .toc-header h3 {
-    font-size: 1rem;
+    font-size: 0.875rem;
     margin: 0;
-    color: var(--text-primary);
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-heading);
 }
 
 .toc-toggle {
@@ -301,15 +306,17 @@
     --sidebar-bg: var(--dark-bg-secondary);
     --sidebar-border: var(--dark-border);
     --sidebar-hover: var(--dark-bg-primary);
-    --sidebar-active: rgba(37, 99, 235, 0.2);
+    --sidebar-active: rgba(15, 76, 117, 0.3);
     --navbar-bg: var(--dark-bg-secondary);
     --footer-bg: #0a0e1a;
     --footer-text: #94a3b8;
     --footer-link: #cbd5e1;
+    --primary-color: #3282b8;
+    --primary-dark: #0f4c75;
 }
 
 [data-theme="dark"] .hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    background: linear-gradient(135deg, #0a2e4a 0%, #0f4c75 50%, #1b5e7e 100%);
 }
 
 [data-theme="dark"] pre {
@@ -396,15 +403,15 @@
     right: var(--spacing-lg);
     width: 48px;
     height: 48px;
-    background: var(--primary-color);
+    background: var(--primary-dark);
     color: var(--white);
-    border: none;
-    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    border-radius: 0;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 12px rgba(15, 76, 117, 0.3);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -419,9 +426,10 @@
 }
 
 .scroll-to-top:hover {
-    background: var(--primary-dark);
+    background: var(--primary-color);
+    border-color: var(--primary-light);
     transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    box-shadow: 0 6px 16px rgba(15, 76, 117, 0.4);
 }
 
 .scroll-to-top svg {

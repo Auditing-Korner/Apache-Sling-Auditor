@@ -4,43 +4,45 @@
    ============================================================================= */
 
 :root {
-    /* Color Palette */
-    --primary-color: #2563eb;
-    --primary-dark: #1e40af;
-    --primary-light: #3b82f6;
-    --secondary-color: #10b981;
-    --accent-color: #f59e0b;
-    --danger-color: #ef4444;
-    --warning-color: #f59e0b;
-    --success-color: #10b981;
-    --info-color: #3b82f6;
+    /* Professional IT Auditor Color Palette */
+    --primary-color: #0f4c75;        /* Deep professional blue */
+    --primary-dark: #0a2e4a;        /* Darker blue for depth */
+    --primary-light: #3282b8;       /* Lighter blue for accents */
+    --secondary-color: #1b5e7e;      /* Secondary blue */
+    --accent-color: #d97706;        /* Professional amber for warnings */
+    --danger-color: #dc2626;         /* Critical red */
+    --warning-color: #d97706;       /* Warning amber */
+    --success-color: #059669;        /* Success green */
+    --info-color: #0284c7;          /* Info blue */
     
-    /* Neutral Colors */
-    --dark-bg: #1f2937;
-    --dark-bg-light: #374151;
-    --light-bg: #f9fafb;
+    /* Professional Neutral Colors */
+    --dark-bg: #0f172a;             /* Slate 900 */
+    --dark-bg-light: #1e293b;        /* Slate 800 */
+    --light-bg: #f8fafc;             /* Slate 50 */
     --white: #ffffff;
-    --text-primary: #111827;
-    --text-secondary: #6b7280;
-    --text-muted: #9ca3af;
-    --border-color: #e5e7eb;
-    --border-light: #f3f4f6;
+    --text-primary: #0f172a;         /* Slate 900 */
+    --text-secondary: #475569;       /* Slate 600 */
+    --text-muted: #64748b;           /* Slate 500 */
+    --border-color: #cbd5e1;         /* Slate 300 */
+    --border-light: #e2e8f0;         /* Slate 200 */
     
-    /* Sidebar Colors */
+    /* Professional Sidebar Colors */
     --sidebar-bg: #ffffff;
-    --sidebar-border: #e5e7eb;
-    --sidebar-hover: #f3f4f6;
-    --sidebar-active: #eff6ff;
-    --sidebar-active-border: #2563eb;
+    --sidebar-border: #e2e8f0;
+    --sidebar-hover: #f1f5f9;
+    --sidebar-active: #e0f2fe;       /* Light blue tint */
+    --sidebar-active-border: #0f4c75;
     
-    /* Navbar Colors */
+    /* Professional Navbar Colors */
     --navbar-bg: #ffffff;
-    --navbar-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --navbar-shadow: 0 1px 3px 0 rgba(15, 76, 117, 0.1), 0 1px 2px 0 rgba(15, 76, 117, 0.06);
+    --navbar-border: #e2e8f0;
     
-    /* Footer Colors */
-    --footer-bg: #1f2937;
-    --footer-text: #9ca3af;
-    --footer-link: #d1d5db;
+    /* Professional Footer Colors */
+    --footer-bg: #0f172a;
+    --footer-text: #94a3b8;
+    --footer-link: #cbd5e1;
+    --footer-border: #1e293b;
     
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -49,9 +51,10 @@
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
     
-    /* Typography */
-    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    /* Professional Typography */
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -92,14 +95,19 @@ html {
 
 body {
     font-family: var(--font-sans);
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--text-primary);
     background-color: var(--light-bg);
+    background-image: 
+        linear-gradient(to right, rgba(15, 76, 117, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 76, 117, 0.02) 1px, transparent 1px);
+    background-size: 24px 24px;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding-top: var(--navbar-height);
+    font-size: 16px;
 }
 
 /* =============================================================================
@@ -113,9 +121,11 @@ body {
     right: 0;
     height: var(--navbar-height);
     background: var(--navbar-bg);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: var(--navbar-shadow);
+    border-bottom: 2px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(15, 76, 117, 0.1);
     z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .navbar-container {
@@ -137,18 +147,24 @@ body {
     align-items: center;
     gap: var(--spacing-sm);
     text-decoration: none;
-    color: var(--text-primary);
-    font-weight: 700;
-    font-size: 1.125rem;
-    transition: color var(--transition-fast);
+    color: var(--primary-dark);
+    font-weight: 800;
+    font-size: 1.25rem;
+    transition: all var(--transition-fast);
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
 }
 
 .brand-link:hover {
     color: var(--primary-color);
+    transform: translateY(-1px);
 }
 
 .brand-icon {
-    font-size: 1.5rem;
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    flex-shrink: 0;
 }
 
 .brand-text {
@@ -188,12 +204,15 @@ body {
 
 .navbar-menu a:hover {
     color: var(--primary-color);
-    background-color: var(--light-bg);
+    background-color: transparent;
+    border-bottom-color: var(--primary-light);
 }
 
 .navbar-menu a.active {
-    color: var(--primary-color);
-    background-color: var(--sidebar-active);
+    color: var(--primary-dark);
+    background-color: transparent;
+    border-bottom-color: var(--primary-color);
+    font-weight: 700;
 }
 
 .github-link {
@@ -201,14 +220,19 @@ body {
     align-items: center;
     gap: 0.5rem;
     padding: var(--spacing-xs) var(--spacing-sm);
-    background: var(--dark-bg);
+    background: var(--primary-dark);
     color: var(--white);
-    border-radius: 6px;
+    border-radius: 0;
+    font-weight: 600;
+    border: 1px solid var(--primary-dark);
 }
 
 .github-link:hover {
     background: var(--primary-color);
     color: var(--white);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(15, 76, 117, 0.2);
 }
 
 .github-link svg {
@@ -263,12 +287,13 @@ body {
     width: var(--sidebar-width);
     height: calc(100vh - var(--navbar-height));
     background: var(--sidebar-bg);
-    border-right: 1px solid var(--sidebar-border);
+    border-right: 2px solid var(--sidebar-border);
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 999;
     transform: translateX(-100%);
     transition: transform var(--transition-base);
+    box-shadow: 2px 0 8px rgba(15, 76, 117, 0.05);
 }
 
 @media (min-width: 1024px) {
@@ -291,13 +316,14 @@ body {
 }
 
 .sidebar-title {
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.6875rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    color: var(--primary-color);
     padding: 0 var(--spacing-md) var(--spacing-xs);
     margin-bottom: var(--spacing-xs);
+    font-family: var(--font-heading);
 }
 
 .sidebar-menu {
@@ -430,6 +456,8 @@ body {
     padding: var(--spacing-xl) var(--spacing-lg);
     background: var(--white);
     min-height: calc(100vh - var(--navbar-height));
+    box-shadow: 0 0 0 1px var(--border-color);
+    border-left: 4px solid var(--primary-color);
 }
 
 /* =============================================================================
@@ -437,17 +465,23 @@ body {
    ============================================================================= */
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.3;
     margin-top: 0;
     margin-bottom: var(--spacing-md);
     color: var(--text-primary);
+    letter-spacing: -0.01em;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    color: var(--primary-dark);
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
 }
 
 h2 {
@@ -455,11 +489,15 @@ h2 {
     margin-top: var(--spacing-xl);
     padding-bottom: var(--spacing-sm);
     border-bottom: 2px solid var(--border-color);
+    color: var(--primary-dark);
+    font-weight: 700;
 }
 
 h3 {
     font-size: 1.5rem;
     margin-top: var(--spacing-lg);
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 h4 {
@@ -488,15 +526,16 @@ a:hover {
    ============================================================================= */
 
 .hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
     color: var(--white);
     padding: var(--spacing-xl) var(--spacing-lg);
-    border-radius: 12px;
+    border-radius: 0;
     margin: var(--spacing-lg) 0;
     text-align: center;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 20px rgba(15, 76, 117, 0.2);
     position: relative;
     overflow: hidden;
+    border-left: 4px solid var(--accent-color);
 }
 
 .hero::before {
@@ -561,10 +600,11 @@ a:hover {
 .feature-card {
     background: var(--white);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0;
     padding: var(--spacing-lg);
     transition: all var(--transition-base);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 2px 4px rgba(15, 76, 117, 0.08);
     position: relative;
     overflow: hidden;
 }
@@ -582,9 +622,10 @@ a:hover {
 }
 
 .feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 76, 117, 0.15);
+    border-left-color: var(--primary-dark);
+    border-color: var(--primary-light);
 }
 
 .feature-card:hover::before {
@@ -611,25 +652,27 @@ a:hover {
    ============================================================================= */
 
 code {
-    background-color: var(--light-bg);
-    padding: 0.2rem 0.5rem;
+    background-color: #f1f5f9;
+    padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-family: var(--font-mono);
-    font-size: 0.9em;
-    color: var(--danger-color);
+    font-size: 0.875em;
+    color: var(--primary-dark);
     border: 1px solid var(--border-color);
+    font-weight: 500;
 }
 
 pre {
-    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
-    color: #f9fafb;
+    background: #0f172a;
+    color: #e2e8f0;
     padding: var(--spacing-lg);
-    border-radius: 12px;
+    border-radius: 0;
     overflow-x: auto;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-md);
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(15, 76, 117, 0.1);
     position: relative;
     margin: var(--spacing-md) 0;
+    font-family: var(--font-mono);
 }
 
 pre code {
@@ -663,12 +706,14 @@ table td {
 }
 
 table th {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
     color: var(--white);
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    font-family: var(--font-heading);
+    border-bottom: 2px solid var(--primary-dark);
 }
 
 table tr:last-child td {
@@ -799,6 +844,7 @@ table tr:nth-child(even):hover {
     color: var(--footer-text);
     margin-top: var(--spacing-xl);
     padding: var(--spacing-xl) 0 var(--spacing-lg);
+    border-top: 3px solid var(--primary-color);
 }
 
 .footer-container {
@@ -815,7 +861,12 @@ table tr:nth-child(even):hover {
     color: var(--white);
     font-size: 1rem;
     margin-bottom: var(--spacing-md);
-    font-weight: 600;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    color: var(--primary-light);
 }
 
 .footer-section ul {

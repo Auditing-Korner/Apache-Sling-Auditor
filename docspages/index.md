@@ -20,14 +20,16 @@ related:
 # Apache Sling / AEM Security Auditor
 
 <div class="hero">
-  <h1>🔒 Comprehensive Security Auditing for Apache Sling & AEM</h1>
-  <p class="lead">A powerful, feature-rich security auditing tool designed to identify misconfigurations, vulnerabilities, and security weaknesses in Apache Sling and Adobe Experience Manager (AEM) instances.</p>
-  <p style="margin-top: 1.5rem; font-size: 1.1rem;">
-    <strong>Author:</strong> 
-    <a href="https://www.linkedin.com/in/ruben-silva85/" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; font-weight: 600;">Ruben Silva</a> | 
-    <a href="https://github.com/Auditing-Korner" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; font-weight: 600;">GitHub</a> | 
-    <a href="https://www.patreon.com/cw/rfs85" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; font-weight: 600;">Patreon</a>
-  </p>
+  <h1 style="border: none; padding: 0; margin-bottom: 1rem;">Comprehensive Security Auditing for Apache Sling & AEM</h1>
+  <p class="lead">A professional-grade security auditing tool designed for IT auditors and security professionals to identify misconfigurations, vulnerabilities, and security weaknesses in Apache Sling and Adobe Experience Manager (AEM) instances.</p>
+  <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+    <p style="font-size: 0.9375rem; opacity: 0.9; margin-bottom: 0.5rem;"><strong>Developed by:</strong></p>
+    <p style="font-size: 1rem;">
+      <a href="https://www.linkedin.com/in/ruben-silva85/" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; font-weight: 600; margin: 0 0.5rem;">Ruben Silva</a> | 
+      <a href="https://github.com/Auditing-Korner" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; font-weight: 600; margin: 0 0.5rem;">GitHub</a> | 
+      <a href="https://www.patreon.com/cw/rfs85" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline; font-weight: 600; margin: 0 0.5rem;">Patreon</a>
+    </p>
+  </div>
 </div>
 
 ## 🚀 Quick Start
