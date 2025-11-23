@@ -90,6 +90,14 @@ No manual configuration needed - just push your changes!
 - Run `bundle install` to install dependencies
 - Check Ruby version (3.1+ recommended)
 
+## Author
+
+**Ruben Silva**
+
+- **LinkedIn**: [https://www.linkedin.com/in/ruben-silva85/](https://www.linkedin.com/in/ruben-silva85/)
+- **GitHub**: [Auditing-Korner](https://github.com/Auditing-Korner)
+- **Patreon**: [https://www.patreon.com/cw/rfs85](https://www.patreon.com/cw/rfs85) - Support cybersecurity research and get exclusive content
+
 ## Support
 
 For issues or questions about the documentation:

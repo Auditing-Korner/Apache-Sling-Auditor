@@ -147,5 +147,15 @@ pip install -r requirements.txt
 - Check existing issues first
 - Be respectful and professional
 
+## Author
+
+**Ruben Silva**
+
+- **LinkedIn**: [https://www.linkedin.com/in/ruben-silva85/](https://www.linkedin.com/in/ruben-silva85/)
+- **GitHub**: [Auditing-Korner](https://github.com/Auditing-Korner)
+- **Patreon**: [https://www.patreon.com/cw/rfs85](https://www.patreon.com/cw/rfs85) - Support cybersecurity research and get exclusive content
+
+---
+
 Thank you for contributing!
 

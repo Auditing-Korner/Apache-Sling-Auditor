@@ -9,6 +9,7 @@ permalink: /
 <div class="hero">
   <h1>Comprehensive Security Auditing for Apache Sling & AEM</h1>
   <p class="lead">A powerful, feature-rich security auditing tool designed to identify misconfigurations, vulnerabilities, and security weaknesses in Apache Sling and Adobe Experience Manager (AEM) instances.</p>
+  <p style="margin-top: 1rem;"><strong>Author:</strong> <a href="https://www.linkedin.com/in/ruben-silva85/" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">Ruben Silva</a> | <a href="https://github.com/Auditing-Korner" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">GitHub</a> | <a href="https://www.patreon.com/cw/rfs85" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">Patreon</a></p>
 </div>
 
 ## 🚀 Quick Start
@@ -121,7 +122,15 @@ Contributions are welcome! See the [Contributing Guide]({{ site.baseurl }}/contr
 
 ## 📄 License
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](https://github.com/Auditing-Korner/Apache-Sling-Auditor/blob/main/LICENSE) file for details.
+This project is licensed under the GPL-3.0 License - see the [LICENSE](https://github.com/Auditing-Korner/Apache-Sling-Auditor/blob/main/LICENSE) file for details.
+
+## 👤 Author
+
+**Ruben Silva**
+
+- **LinkedIn**: [https://www.linkedin.com/in/ruben-silva85/](https://www.linkedin.com/in/ruben-silva85/)
+- **GitHub**: [Auditing-Korner](https://github.com/Auditing-Korner)
+- **Patreon**: [https://www.patreon.com/cw/rfs85](https://www.patreon.com/cw/rfs85) - Support cybersecurity research and get exclusive content
 
 ---
 
