@@ -21,7 +21,7 @@ import re
 import string
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Union
 from urllib.parse import quote, urlencode, urljoin, urlparse, parse_qs
@@ -36,6 +36,7 @@ from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
 from tqdm import tqdm
+from email.utils import parsedate_to_datetime
 
 # Initialize colorama for cross-platform colored output
 init()
@@ -51,6 +52,41 @@ class AsyncResponse:
     def get(self, key: str, default: Optional[str] = None) -> Optional[str]:
         """Get header value by key"""
         return self.headers.get(key, default)
+
+
+class AsyncRateLimiter:
+    """Simple token bucket rate limiter for async operations"""
+
+    def __init__(self, rate_per_sec: float, burst: Optional[float] = None) -> None:
+        self.rate = max(0.0, rate_per_sec)
+        self.capacity = max(burst if burst else self.rate or 1.0, 1.0)
+        self.tokens = self.capacity
+        self.updated = time.monotonic()
+        self._lock = asyncio.Lock()
+
+    async def acquire(self) -> None:
+        """Wait until a token is available"""
+        if self.rate <= 0:
+            return
+
+        while True:
+            async with self._lock:
+                now = time.monotonic()
+                elapsed = now - self.updated
+                if elapsed > 0:
+                    self.tokens = min(self.capacity, self.tokens + elapsed * self.rate)
+                    self.updated = now
+
+                if self.tokens >= 1:
+                    self.tokens -= 1
+                    return
+
+                wait_time = (1 - self.tokens) / self.rate if self.rate else 0
+
+            if wait_time > 0:
+                await asyncio.sleep(wait_time)
+            else:
+                await asyncio.sleep(0)
 
 class SlingAuditor:
     """Apache Sling security auditor with enhanced features"""
@@ -68,7 +104,7 @@ class SlingAuditor:
         self.timeout = timeout
         self.verify_ssl = verify_ssl
         self.verbose = verbose
-        self.threads = threads
+        self.threads = max(1, threads)
         self.proxy = proxy
         self.output_dir = output_dir or 'scan_results'
         self.wordlist_path = wordlist
@@ -85,7 +121,12 @@ class SlingAuditor:
         
         # Setup async session for concurrent requests
         self.async_session = None
-        self.semaphore = asyncio.Semaphore(threads)
+        self.user_thread_limit = self.threads
+        self.semaphore = asyncio.Semaphore(self.threads)
+        self.rate_limiter: Optional[AsyncRateLimiter] = None
+        self.mode_settings: Dict[str, Union[int, float]] = {}
+        self.backoff_until: float = 0.0
+        self.max_backoff: float = 60.0
         
         # Setup regular session
         self.session = requests.Session()
@@ -212,6 +253,42 @@ class SlingAuditor:
                 'https': self.proxy
             }
 
+    def configure_scan_mode(self, mode: str) -> None:
+        """Apply concurrency and rate-limiting settings for the selected scan mode"""
+        scan_modes = self.config.get('scan_modes', {})
+        mode_config = scan_modes.get(mode, {}) or scan_modes.get('full', {})
+
+        # Determine concurrency
+        configured_concurrency = mode_config.get('concurrent_requests')
+        if configured_concurrency:
+            concurrency = min(self.user_thread_limit, max(1, configured_concurrency))
+        else:
+            concurrency = self.user_thread_limit
+        self.semaphore = asyncio.Semaphore(concurrency)
+
+        # Determine rate limit
+        max_rps = mode_config.get('max_requests_per_second', 0)
+        if max_rps and max_rps > 0:
+            burst = mode_config.get('burst_size')
+            if not burst:
+                burst = max(max_rps * 2, concurrency)
+            self.rate_limiter = AsyncRateLimiter(max_rps, burst)
+        else:
+            self.rate_limiter = None
+
+        self.mode_settings = {
+            'mode': mode,
+            'max_requests_per_second': max_rps,
+            'concurrent_requests': concurrency
+        }
+
+        self.log(
+            f"Scan mode '{mode}' configured with {concurrency} concurrent requests "
+            f"and {max_rps or 'unlimited'} req/s",
+            "INFO",
+            Fore.CYAN
+        )
+
     async def setup_async_session(self) -> None:
         """Setup async session for concurrent requests"""
         if not self.async_session:
@@ -231,6 +308,64 @@ class SlingAuditor:
             log_message = f"[{timestamp}] [{level}] {message}"
             print(f"{color}{log_message}{Style.RESET_ALL}")
 
+    async def _respect_rate_limit(self) -> None:
+        """Apply global rate limiting and server-directed backoff"""
+        if self.backoff_until:
+            wait_for = self.backoff_until - time.monotonic()
+            if wait_for > 0:
+                await asyncio.sleep(wait_for)
+            self.backoff_until = 0.0
+
+        if self.rate_limiter:
+            await self.rate_limiter.acquire()
+
+    def _parse_retry_after(self, retry_after: str) -> Optional[float]:
+        """Parse Retry-After header and return seconds to wait"""
+        if not retry_after:
+            return None
+
+        retry_after = retry_after.strip()
+        if not retry_after:
+            return None
+
+        try:
+            return max(0.0, float(retry_after))
+        except ValueError:
+            try:
+                retry_dt = parsedate_to_datetime(retry_after)
+                if retry_dt.tzinfo is None:
+                    retry_dt = retry_dt.replace(tzinfo=timezone.utc)
+                delta = (retry_dt - datetime.now(timezone.utc)).total_seconds()
+                return max(0.0, delta)
+            except Exception:
+                return None
+
+    def _register_server_backoff(self, status: int, headers: Dict[str, str]) -> None:
+        """Honor Retry-After or add adaptive backoff when server asks for slow down"""
+        retry_after = headers.get('Retry-After')
+        wait_time = self._parse_retry_after(retry_after) if retry_after else None
+
+        if wait_time is None:
+            if status == 429:
+                wait_time = 10.0
+            elif status in (503, 504):
+                wait_time = 5.0
+            else:
+                wait_time = 0.0
+
+        if wait_time <= 0:
+            return
+
+        wait_time = min(wait_time, self.max_backoff)
+        new_deadline = time.monotonic() + wait_time
+        if new_deadline > self.backoff_until:
+            self.backoff_until = new_deadline
+            self.log(
+                f"Server responded with {status}. Respecting Retry-After for {wait_time:.2f}s",
+                "WARNING",
+                Fore.YELLOW
+            )
+
     async def async_request(self, path: str, method: str = 'GET', headers: Optional[Dict[str, str]] = None, **kwargs) -> Optional[AsyncResponse]:
         """Make an async request with error handling
         
@@ -244,6 +379,7 @@ class SlingAuditor:
             **kwargs: Additional arguments passed to aiohttp request
         """
         url = urljoin(self.target_url, path)
+        await self._respect_rate_limit()
         async with self.semaphore:
             try:
                 # Merge custom headers with session headers
@@ -261,12 +397,17 @@ class SlingAuditor:
                         self.log(f"Error reading response body for {url}: {str(e)}", "WARNING", Fore.YELLOW)
                         text = ""
                     
-                    return AsyncResponse(
+                    async_response = AsyncResponse(
                         status=status,
                         headers=headers,
                         text=text,
                         url=str(response.url)
                     )
+
+                    if status in (429, 503, 504):
+                        self._register_server_backoff(status, headers)
+
+                    return async_response
             except asyncio.TimeoutError:
                 self.log(f"Request timeout: {url}", "ERROR", Fore.RED)
                 return None
@@ -402,6 +543,7 @@ class SlingAuditor:
         start_time = time.time()
         
         try:
+            self.configure_scan_mode(mode)
             # Setup async session
             await self.setup_async_session()
             
