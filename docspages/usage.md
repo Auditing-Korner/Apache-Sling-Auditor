@@ -101,9 +101,11 @@ python auditor.py -t http://target.com:4502 \
   -p password
 ```
 
+**Note**: When credentials are provided via `-u` and `-p`, they are used for authenticated requests. However, default credential testing (from `config/audit_config.yaml`) only occurs if authentication-required paths are detected first during the scan.
+
 ### Form-Based Authentication
 
-The auditor automatically detects and handles form-based authentication when testing protected endpoints.
+The auditor automatically detects and handles form-based authentication when testing protected endpoints. Both form-based and HTTP Basic authentication are supported.
 
 ## Wordlist Enumeration
 
@@ -121,6 +123,11 @@ python auditor.py -t http://target.com:4502 \
   --wordlist wordlists/sling_paths_extended.txt
 ```
 
+**Performance Note**: Large wordlists (thousands of paths) are loaded entirely into memory. For very large wordlists, consider:
+- Using smaller, focused wordlists
+- Reducing `--threads` to manage memory usage
+- Processing wordlists in batches
+
 ### Custom Wordlist
 
 ```bash
@@ -132,6 +139,7 @@ python auditor.py -t http://target.com:4502 \
 - One path per line
 - Supports relative paths (e.g., `/system/console`)
 - Comments with `#` are ignored
+- Paths must start with `/` to be processed
 
 ## Exploitation Mode
 
@@ -332,6 +340,8 @@ scan_results/YYYYMMDD_HHMMSS/
 └── detailed_report.json
 ```
 
+**Note**: Currently, only JSON reports are generated. HTML and text summary reports are planned for future releases. The JSON report contains all scan results and findings in a structured format.
+
 ### Report Structure
 
 The JSON report contains:
@@ -415,7 +425,10 @@ python auditor.py -t http://target.com:4502 --exploit
 - **Solution**: Check network, increase `--timeout`, use `-k` for SSL issues
 
 **Issue**: Memory usage high
-- **Solution**: Reduce `--threads`, use smaller wordlists
+- **Solution**: Reduce `--threads`, use smaller wordlists, process wordlists in batches
+
+**Issue**: Default credentials not being tested
+- **Solution**: Ensure authentication-required paths are detected first (use `--mode full`), or manually test credentials with `-u` and `-p` flags
 
 **Issue**: Rate limiting detected
 - **Solution**: Use `--mode stealth`, increase delays in config

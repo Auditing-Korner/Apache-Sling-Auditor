@@ -62,6 +62,8 @@ navigation:
     url: /api-reference
   - title: Examples
     url: /examples
+  - title: Troubleshooting
+    url: /troubleshooting
   - title: Contributing
     url: /contributing
 

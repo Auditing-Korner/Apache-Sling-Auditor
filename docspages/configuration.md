@@ -106,6 +106,12 @@ credentials:
     description: Common Admin Variant
 ```
 
+**Important Note**: Default credentials are only tested against paths that require authentication (401/403 responses). If no authentication-required paths are detected during the scan, default credential testing will be skipped. To ensure credential testing:
+
+1. Use `--mode full` to check all endpoints
+2. Manually test credentials with `-u` and `-p` flags
+3. Ensure your target has protected endpoints that return 401/403
+
 ### CVE Definitions
 
 Define vulnerabilities to test:
@@ -356,6 +362,17 @@ The configuration file is validated on startup. Common errors:
 - **Missing required fields**: Ensure all CVE definitions have required fields
 - **Invalid severity**: Use only: critical, high, medium, low, info
 - **Invalid type**: Use only: xss, ssrf, path_traversal, info_disclosure, generic
+
+## Configuration Safety
+
+**Important**: The auditor uses `.get()` methods with defaults for most configuration access, but some sections (like `security_checks.configuration.check_dispatcher`) may cause errors if the configuration structure is incomplete. 
+
+**Best Practice**: 
+- Keep the default `config/audit_config.yaml` as a template
+- Only modify specific sections rather than removing entire sections
+- Test configuration changes with a quick scan first
+
+If you encounter `KeyError` exceptions, ensure all referenced configuration sections exist in your YAML file.
 
 ## Reloading Configuration
 

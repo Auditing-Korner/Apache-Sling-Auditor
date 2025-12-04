@@ -62,8 +62,10 @@ python auditor.py -t https://target.com:4503 \
 
 **What it does:**
 - Uses provided credentials for authenticated endpoints
-- Tests protected paths
+- Tests protected paths that require authentication
 - Verbose output for detailed information
+
+**Note**: Default credentials from `config/audit_config.yaml` are only tested if authentication-required paths (401/403) are detected first. For guaranteed credential testing, use the `-u` and `-p` flags directly.
 
 ### 3. Stealth Scan
 

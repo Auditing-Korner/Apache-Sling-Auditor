@@ -400,11 +400,17 @@ The auditor respects the following environment variables:
 
 The auditor returns a JSON report to the output directory containing:
 
-- Scan information
-- All findings
-- Vulnerability results
-- Exploitation results (if enabled)
-- Brute force results (if enabled)
+- **scan_info**: Target, mode, duration, timestamps
+- **target_info**: Version detection, product information
+- **security_findings**: All findings categorized by severity (critical, high, medium, low, info)
+- **vulnerabilities**: CVE detection results with test details
+- **exposed_apis**: Discovered API endpoints
+- **authentication**: Auth test results, valid credentials, brute force results
+- **configuration**: OSGI and dispatcher configuration findings
+- **content_security**: Exposed paths and sensitive content
+- **exploit_results**: Exploitation outcomes (if `--exploit` enabled)
+
+**Report Format**: Currently only JSON reports are generated. HTML and text summary reports are planned for future releases.
 
 ## Error Handling
 

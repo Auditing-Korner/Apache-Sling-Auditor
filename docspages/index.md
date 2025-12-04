@@ -71,7 +71,7 @@ python auditor.py -t http://target.com:4502
   </div>
   <div class="feature-card">
     <h3>📊 Detailed Reporting</h3>
-    <p>Rich console output and comprehensive JSON reports. Color-coded severity levels and detailed vulnerability information.</p>
+    <p>Rich console output and comprehensive JSON reports. Color-coded severity levels and detailed vulnerability information. HTML reports planned for future releases.</p>
   </div>
 </div>
 
@@ -114,6 +114,10 @@ python auditor.py -t http://target.com:4502
     <strong>💡 [Examples]({{ site.baseurl }}/examples)</strong><br>
     <small style="color: #6b7280;">Usage examples and scenarios</small>
   </div>
+  <div style="padding: 1rem; background: #f9fafb; border-radius: 8px; border-left: 4px solid #2563eb; transition: all 0.3s;">
+    <strong>🔧 [Troubleshooting]({{ site.baseurl }}/troubleshooting)</strong><br>
+    <small style="color: #6b7280;">Common issues and solutions</small>
+  </div>
 </div>
 
 ## 🎯 Use Cases
@@ -128,6 +132,13 @@ python auditor.py -t http://target.com:4502
   <strong>⚠️ FOR EDUCATIONAL AND AUTHORIZED USE ONLY</strong><br>
   This tool is intended for security auditing and testing purposes by authorized personnel only. Always obtain explicit written permission before scanning any system.
 </div>
+
+## ⚠️ Known Limitations
+
+- **Reporting**: Currently only JSON reports are generated. HTML and text summary reports are planned for future releases.
+- **Default Credentials**: Default credentials from config are only tested if authentication-required paths (401/403) are detected first. Use `-u` and `-p` flags for guaranteed credential testing.
+- **Memory Usage**: Large wordlists are loaded entirely into memory. Consider using smaller wordlists or reducing thread count for very large enumerations.
+- **Configuration**: Some configuration sections must exist in `config/audit_config.yaml` or scans may fail. Keep the default config as a template.
 
 ## 📦 Installation
 

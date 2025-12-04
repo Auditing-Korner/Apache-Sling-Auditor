@@ -85,9 +85,11 @@ Wordlist-based discovery:
 
 Multiple output formats:
 
-- **Console Output**: Real-time color-coded results
-- **JSON Reports**: Comprehensive machine-readable reports
-- **Exploit Outputs**: PoC files and extracted data
+- **Console Output**: Real-time color-coded results with severity indicators
+- **JSON Reports**: Comprehensive machine-readable reports with complete scan data
+- **Exploit Outputs**: PoC files and extracted data (when `--exploit` is enabled)
+
+**Note**: HTML and text summary reports are planned for future releases. Currently, JSON reports provide the most comprehensive output format.
 
 ## Security Checks
 
@@ -269,7 +271,13 @@ python auditor.py -t http://target.com:4502 --threads 10
 - **Fast Scanning**: Asynchronous I/O for high performance
 - **Efficient**: Connection pooling and reuse
 - **Scalable**: Configurable concurrency
-- **Resource-Friendly**: Low memory footprint
+- **Resource-Friendly**: Low memory footprint (note: large wordlists load entirely into memory)
+
+## Current Limitations
+
+- **Reporting**: Only JSON reports are currently generated. HTML and text summary reports are planned for future releases.
+- **Default Credentials**: Default credentials from configuration are only tested if authentication-required paths (401/403) are detected first. Use command-line flags (`-u`, `-p`) for guaranteed credential testing.
+- **Memory Usage**: Very large wordlists (thousands of paths) are loaded entirely into memory. Consider using smaller wordlists or reducing thread count for large enumerations.
 
 ## Extensibility
 
